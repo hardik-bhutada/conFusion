@@ -24,14 +24,21 @@ export class PromotionService {
   // }
 
   getPromotions(): Promise<Promotion[]>{
-    return Promise.resolve(PROMOTION);
+    return new Promise(resolve => {
+      setTimeout(() => resolve(PROMOTION), 2000);
+    });
+    // return Promise.resolve(PROMOTION);
   }
 
   gePromotion(id: string): Promise<Promotion> {
-    return Promise.resolve(PROMOTION.filter((promo) => (promo.id == id))[0]);
+    return new Promise(resolve => {
+      setTimeout(() => resolve(PROMOTION.filter((promo) => (promo.id == id))[0]), 2000);
+    });
   }
 
   getFeaturedPromotion(): Promise<Promotion> {
-    return Promise.resolve(PROMOTION.filter((promo) => promo.featured)[0]);
+    return new Promise(resolve => {
+      setTimeout(() => resolve(PROMOTION.filter((promo) => promo.featured)[0]), 2000);
+    });
   }
 }
